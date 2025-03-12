@@ -1,17 +1,28 @@
 const jwt = require("jsonwebtoken");
-const secret = require("../index")
-// middleware for handling auth
-function userMiddleware(req,res,next){
-   const token = req.headers.authorization;
-   const words = token.split("");
-   const jwtToken = words[1];
-   const decodedValue = jwt.verify(jwtToken,secret);
-   if (decodedValue.username){
-    next();
-}else {
-    res.status(403).json({
-        msg:"you are not authenticated"
-    })
+const {JWT_SECRET} = require("../config")
+
+const authMiddleware = (req,res,next) => {
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader || !authHeader.startsWith('Bearer')){
+        return res.status(403).json({});
+
+    }
+    const token = authHeader.split('')[1];
+    try{
+        const decoded = jwt.verify(token,JWT_SECRET);
+        if(decoded.userId)
+        {req.userId = decoded.userId;
+        next();}
+        else {
+            return res.status(403).json({});
+        }
+    }
+    catch (err){
+        return res.status(403).json({});
+    }
+};
+
+module.exports= {
+    authMiddleware
 }
-}
-module.exports = userMiddleware;

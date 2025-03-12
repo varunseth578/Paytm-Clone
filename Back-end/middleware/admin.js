@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const secret = require("../index")
+const {JWT_SECRET} = require("../config")
 // middleware for handling auth
 function adminMiddleware(req,res,next){
    const token = req.headers.authorization;
