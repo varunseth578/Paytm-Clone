@@ -4,11 +4,6 @@ import { Button } from "../comp/Button"
 import { Heading } from "../comp/Heading"
 import { InputBox } from "../comp/Inputbox"
 import { Subheading } from "../comp/Subheading"
-
-
-
-
-
 export const Signin = () => {
 
     return <div className="bg-slate-300 h-screen flex justify-center">
