@@ -2,11 +2,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const Signup = lazy(() => import('./pages/Signup'));
-const Signin = lazy(() => import('./pages/Signin'));
-const Dashboard = lazy(() => import('./pages/Dashboard'));
-const SendMoney = lazy(() => import('./pages/SendMoney'));
-const UpdateDetails = lazy(() => import('./pages/UpdateDetails'));
+const Signup = lazy(() => import('./Pages/Signup'));
+const Signin = lazy(() => import('./Pages/Signin'));
+const Dashboard = lazy(() => import('./Pages/Dashboard'));
+const SendMoney = lazy(() => import('./Pages/Send'));
+const UpdateDetails = lazy(() => import('./Pages/UpdateDetails'));
 function App() {
 
   return (
