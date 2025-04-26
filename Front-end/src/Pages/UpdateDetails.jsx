@@ -38,7 +38,7 @@ const UpdateDetails = () => {
                     if (firstName) updatePayload.firstName = firstName;
                     if (lastName) updatePayload.lastName = lastName;
 
-                    const response = await axios.put("http://localhost:3000/api/v1/user/", updatePayload, {
+                    const response = await axios.put("https://paytm-clone-backend-ungd.onrender.com/api/v1/user/", updatePayload, {
                         headers: {
                             Authorization: "Bearer " + localStorage.getItem("token")
                         }

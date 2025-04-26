@@ -9,7 +9,7 @@ const Dashboard = () => {
     const [name, setName] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/v1/account/balance", {
+        axios.get("https://paytm-clone-backend-ungd.onrender.com/api/v1/account/balance", {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`
             }
@@ -20,7 +20,7 @@ const Dashboard = () => {
         .catch(error => {
             console.error("Error fetching balance:", error);
         });
-        axios.get("http://localhost:3000/api/v1/user/name", {
+        axios.get("https://paytm-clone-backend-ungd.onrender.com/api/v1/user/name", {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("token")
             }
